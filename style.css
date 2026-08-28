@@ -6,7 +6,7 @@
     
     --font-premium: 'Cormorant Garamond', serif;
     --font-tech: 'Montserrat', sans-serif;
-    --font-tall: 'Oswald', sans-serif; /* Nova variável */
+    --font-tall: 'Oswald', sans-serif;
 }
 
 * {
@@ -17,7 +17,6 @@
 
 html {
     scroll-behavior: smooth;
-    /* Evita rolagem horizontal acidental no mobile devido a elementos absolutos/animados */
     overflow-x: hidden;
 }
 
@@ -28,7 +27,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    overflow-x: hidden; /* Segurança extra para mobile */
+    overflow-x: hidden;
 }
 
 a {
@@ -45,9 +44,9 @@ img, video {
 
 h1, h2, h3, h4 {
     font-family: var(--font-tall);
-    font-weight: 200; /* Força a espessura fina */
+    font-weight: 200;
     text-transform: uppercase;
-    letter-spacing: 1px; /* Respiro essencial para fontes altas */
+    letter-spacing: 1px;
 }
 
 /* -------------------------------------
@@ -183,12 +182,12 @@ nav a:hover::after {
 .img-1 { grid-column: 1 / 2; grid-row: 1 / 2; height: 300px; }
 .img-2 { grid-column: 2 / 3; grid-row: 1 / 3; height: 100%; } 
 .img-3 { 
-        grid-column: 1 / 2; 
-        grid-row: 3 / 4; 
-        height: auto; /* Remove a altura fixa */
-        aspect-ratio: 3/4;
-        transform: none; 
-    }
+    grid-column: 1 / 2; 
+    grid-row: 3 / 4; 
+    height: auto; 
+    aspect-ratio: 3/4;
+    transform: none; 
+}
 
 /* -------------------------------------
    EXPERTISE / ÁREAS DE ATUAÇÃO
@@ -225,7 +224,7 @@ nav a:hover::after {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem 4rem; 
-    border-top: 1px solid rgba(26, 26, 26, 0.15); /* Linha divisória escura */
+    border-top: 1px solid rgba(26, 26, 26, 0.15); 
     padding-top: 4rem;
 }
 
@@ -239,7 +238,6 @@ nav a:hover::after {
     opacity: 0.9;
 }
 
-/* Quadrado minimalista técnico */
 .expertise-item::before {
     content: '';
     display: inline-block;
@@ -248,18 +246,6 @@ nav a:hover::after {
     height: 6px;
     background-color: var(--text-primary);
     opacity: 0.4;
-}
-
-/* Responsividade */
-@media (max-width: 900px) {
-    .expertise-section {
-        padding: 4rem 5% 2rem 5%;
-    }
-    .expertise-grid {
-        grid-template-columns: 1fr; 
-        padding-top: 3rem;
-        gap: 1.5rem;
-    }
 }
 
 /* -------------------------------------
@@ -273,7 +259,7 @@ nav a:hover::after {
     white-space: nowrap;
     display: flex;
     align-items: center;
-    width: 100%; /* Garante que não vaze na responsividade */
+    width: 100%; 
 }
 
 .marquee-track {
@@ -282,7 +268,6 @@ nav a:hover::after {
     font-weight: 500;
     letter-spacing: 2px;
     animation: textMarquee 25s linear infinite;
-    /* Usa Will-change para otimizar animação em mobile */
     will-change: transform;
 }
 
@@ -290,7 +275,6 @@ nav a:hover::after {
     margin: 0 10px;
 }
 
-/* Faixa específica de Logos */
 .logo-track {
     display: inline-flex;
 }
@@ -330,7 +314,7 @@ nav a:hover::after {
 }
 
 .section-title {
-    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Título escalável para mobile */
+    font-size: clamp(2.5rem, 5vw, 3.5rem); 
     margin-bottom: 4rem;
     text-align: center;
     position: relative;
@@ -350,13 +334,14 @@ nav a:hover::after {
 .section-desc {
     text-align: center;
     max-width: 700px;
-    margin: -1.5rem auto 5rem auto; /* Puxa o texto para perto da linha do título */
+    margin: -1.5rem auto 5rem auto; 
     font-size: 1.1rem;
     font-weight: 300;
     line-height: 1.6;
     color: var(--text-primary);
     opacity: 0.85;
 }
+
 /* -------------------------------------
    CARROSSEL INFINITO CSS-ONLY
 -------------------------------------- */
@@ -368,9 +353,8 @@ nav a:hover::after {
     font-size: clamp(1.4rem, 3vw, 1.8rem);
     margin-bottom: 2rem;
     text-align: center;
-    /* font-style: italic; (Removido para manter a sobriedade da Montserrat Light) */
     opacity: 0.9;
-    text-transform: uppercase; /* Opcional: Adicionado para dar mais peso visual sem engrossar a fonte */
+    text-transform: uppercase;
     letter-spacing: 2px;
 }
 
@@ -384,13 +368,11 @@ nav a:hover::after {
 
 .carousel-track {
     display: flex;
-    /* gap: 20px; -> REMOVIDO PARA CORRIGIR O CALCULO DE 50% DO LOOP */
     width: max-content; 
     animation: scrollInfinite 30s linear infinite;
     will-change: transform;
 }
 
-/* Desabilita hover pause em mobile para não bugar o scroll no touch */
 @media (hover: hover) {
     .carousel-container:hover .carousel-track {
         animation-play-state: paused;
@@ -469,7 +451,7 @@ nav a:hover::after {
     border-radius: 32px; 
     transform: none;
     background-color: #000; 
-    outline: none; /* Remove borda azul de foco no mobile */
+    outline: none; 
 }
 
 /* -------------------------------------
@@ -479,6 +461,7 @@ nav a:hover::after {
     aspect-ratio: 4 / 5 !important; 
     height: 500px !important;
     width: 400px !important;
+    cursor: pointer;
 }
 
 /* -------------------------------------
@@ -493,7 +476,6 @@ nav a:hover::after {
     margin: 0 auto;
 }
 
-/* Modificador do iPhone para telas de aplicativos (fundo branco) */
 .metrics-frame {
     background-color: #ffffff; 
     box-shadow: 0 15px 35px rgba(0,0,0,0.06); 
@@ -502,17 +484,17 @@ nav a:hover::after {
 .growth-grid .metrics-frame img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Garante que os números não sejam cortados */
+    object-fit: contain; 
     border-radius: 32px;
-    padding-top: 35px; /* Protege a imagem de ser coberta pelo Notch da câmera */
+    padding-top: 35px; 
     background-color: #ffffff;
-    filter: none; /* Remove o filtro cinza para manter a clareza dos dados e cores reais */
+    filter: none; 
     transition: transform 0.5s ease;
 }
 
 @media (hover: hover) {
     .growth-grid .metrics-frame:hover img {
-        transform: scale(1.03); /* Microinteração mantida apenas na tela interna */
+        transform: scale(1.03); 
     }
 }
 
@@ -548,7 +530,7 @@ nav a:hover::after {
     aspect-ratio: 3/4;
     filter: grayscale(50%) sepia(10%);
     transition: filter 0.5s, transform 0.5s;
-    width: 100%; /* Força imagem não vazar */
+    width: 100%; 
 }
 
 @media (hover: hover) {
@@ -556,104 +538,6 @@ nav a:hover::after {
         filter: grayscale(0%) sepia(0%);
         transform: scale(1.02);
     }
-}
-
-/* -------------------------------------
-   RESPONSIVIDADE (MOBILE AJUSTES)
--------------------------------------- */
-@media (max-width: 900px) {
-    .services-section {
-        padding: 5rem 5%; /* Menos respiro vertical no mobile */
-    }
-
-    .hero {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-        padding: 4rem 5%;
-    }
-    
-    .hero-content {
-        padding-right: 0;
-        text-align: center;
-    }
-    
-    .text-block {
-        margin: 0 auto 2rem auto;
-    }
-    
-    .hero-gallery {
-        gap: 10px;
-    }
-    .hero-gallery .img-3 {
-        transform: translateY(20px); 
-        height: auto; /* Remove a altura fixa */
-        aspect-ratio: 3/4; /* Mantém a proporção de retrato vertical */
-    }
-
-    .footer-contact {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-        padding: 5rem 5%;
-    }
-    
-    .contact-info {
-        padding-left: 0;
-        text-align: center;
-    }
-    
-    nav {
-        display: none; 
-    }
-    
-    /* Redimensionamento dos Carrosséis para telas menores */
-    .carousel-group img {
-        height: 350px;
-        width: 260px;
-    }
-    
-    .feed-img {
-        height: 325px !important;
-        width: 260px !important;
-    }
-    
-    .iphone-frame {
-        height: 400px;
-        width: 225px; /* Proporção 9:16 de 400px */
-        border-width: 6px;
-        border-radius: 30px;
-    }
-    .iphone-frame::before {
-        width: 90px;
-        height: 18px;
-    }
-    
-    .reels-carousel .carousel-group .iphone-frame video {
-        border-radius: 24px;
-    }
-
-    .brand-group {
-        margin-bottom: 4rem;
-    }
-    
-    .logo-group {
-        gap: 4rem;
-        padding-right: 4rem;
-    }
-    
-    .logo-group img {
-        height: 35px; /* Logos um pouco menores no mobile */
-    }
-}
-
-/* Ajuste fino para telas muito pequenas (iPhone SE etc) */
-@media (max-width: 400px) {
-    .hero-gallery {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto;
-    }
-    .img-1 { grid-column: 1 / 2; grid-row: 1 / 2; height: 250px; }
-    .img-2 { grid-column: 1 / 2; grid-row: 2 / 3; height: 350px; }
-    .img-3 { grid-column: 1 / 2; grid-row: 3 / 4; height: 250px; transform: none; }
 }
 
 /* -------------------------------------
@@ -678,23 +562,22 @@ nav a:hover::after {
     align-items: center;
     z-index: 10;
     transition: opacity 0.3s ease;
-    pointer-events: none; /* Deixa o clique passar para o vídeo */
+    pointer-events: none; 
 }
 
 .play-overlay svg {
     fill: #ffffff;
     width: 20px;
     height: 20px;
-    margin-left: 4px; /* Centraliza visualmente o triângulo do play */
+    margin-left: 4px; 
 }
 
-/* Oculta o play quando a classe is-playing é adicionada (Desktop) */
 .video-wrapper.is-playing .play-overlay {
     opacity: 0;
 }
 
 /* -------------------------------------
-   MODAL DE VÍDEO (MOBILE POPUP)
+   MODAL DE VÍDEO E IMAGEM (MOBILE POPUP)
 -------------------------------------- */
 .modal {
     display: none;
@@ -745,7 +628,148 @@ nav a:hover::after {
     font-family: var(--font-tech);
 }
 
+.modal-content.image-content {
+    height: auto;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content.image-content img {
+    max-height: 90vh;
+    width: auto;
+    max-width: 100%;
+    border-radius: 16px;
+    object-fit: contain;
+}
+
 /* Trava o carrossel durante a reprodução do vídeo no PC */
 .carousel-container.is-paused .carousel-track {
     animation-play-state: paused !important;
+}
+
+/* -------------------------------------
+   RESPONSIVIDADE (MOBILE AJUSTES)
+-------------------------------------- */
+@media (max-width: 900px) {
+    .expertise-section {
+        padding: 4rem 5% 2rem 5%;
+    }
+    .expertise-grid {
+        grid-template-columns: 1fr; 
+        padding-top: 3rem;
+        gap: 1.5rem;
+    }
+
+    .services-section {
+        padding: 5rem 5%;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 4rem 5%;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        text-align: center;
+    }
+    
+    .text-block {
+        margin: 0 auto 2rem auto;
+    }
+    
+    /* 1. Reorganização do Banner (Imagem 3 no formato Reels) */
+    .hero-gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 15px;
+    }
+    .img-1 { grid-column: 1 / 2; grid-row: 1 / 2; height: 220px; width: 100%; }
+    .img-2 { grid-column: 2 / 3; grid-row: 1 / 2; height: 220px; width: 100%; }
+    .hero-gallery .img-3 {
+        grid-column: 1 / 3; 
+        grid-row: 2 / 3; 
+        height: auto; 
+        width: 100%;
+        aspect-ratio: 9 / 16; 
+        transform: none; 
+    }
+
+    .footer-contact {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 5rem 5%;
+    }
+    
+    .contact-info {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    nav {
+        display: none; 
+    }
+    
+    /* Redimensionamento dos Carrosséis para telas menores */
+    .carousel-group img {
+        height: 350px;
+        width: 260px;
+    }
+    
+    .feed-img {
+        height: 325px !important;
+        width: 260px !important;
+    }
+    
+    .iphone-frame {
+        height: 400px;
+        width: 225px; 
+        border-width: 6px;
+        border-radius: 30px;
+    }
+    .iphone-frame::before {
+        width: 90px;
+        height: 18px;
+    }
+    
+    .reels-carousel .carousel-group .iphone-frame video {
+        border-radius: 24px;
+    }
+
+    .brand-group {
+        margin-bottom: 4rem;
+    }
+    
+    .logo-group {
+        gap: 4rem;
+        padding-right: 4rem;
+    }
+    
+    .logo-group img {
+        height: 35px;
+    }
+
+    /* 2. Conversão dos Carrosséis para Arrasto Nativo Híbrido (Swipe + Auto) */
+    .carousel-container {
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        mask-image: none;
+        -webkit-mask-image: none;
+        padding-bottom: 15px;
+        /* scroll-snap-type removido para não conflitar com o motor JS */
+    }
+    .carousel-container::-webkit-scrollbar {
+        display: none; 
+    }
+    .carousel-track {
+        animation: none !important; /* Desativa a animação CSS para o Javascript assumir */
+        padding-right: 20px;
+    }
+    .carousel-group img, .iphone-frame {
+        scroll-snap-align: center; 
+    }
 }
