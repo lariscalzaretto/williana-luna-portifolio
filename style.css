@@ -183,10 +183,83 @@ nav a:hover::after {
 .img-1 { grid-column: 1 / 2; grid-row: 1 / 2; height: 300px; }
 .img-2 { grid-column: 2 / 3; grid-row: 1 / 3; height: 100%; } 
 .img-3 { 
-    grid-column: 1 / 2; 
-    grid-row: 2 / 3; 
-    height: 400px; 
-    transform: translateY(60px); 
+        grid-column: 1 / 2; 
+        grid-row: 3 / 4; 
+        height: auto; /* Remove a altura fixa */
+        aspect-ratio: 3/4;
+        transform: none; 
+    }
+
+/* -------------------------------------
+   EXPERTISE / ÁREAS DE ATUAÇÃO
+-------------------------------------- */
+.expertise-section {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    padding: 6rem 5% 4rem 5%; 
+}
+
+.expertise-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.expertise-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 4rem;
+    text-align: center;
+    position: relative;
+    color: var(--text-primary);
+}
+
+.expertise-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    margin: 20px auto 0;
+    background-color: var(--text-primary);
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem 4rem; 
+    border-top: 1px solid rgba(26, 26, 26, 0.15); /* Linha divisória escura */
+    padding-top: 4rem;
+}
+
+.expertise-item {
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0.9;
+}
+
+/* Quadrado minimalista técnico */
+.expertise-item::before {
+    content: '';
+    display: inline-block;
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    background-color: var(--text-primary);
+    opacity: 0.4;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .expertise-section {
+        padding: 4rem 5% 2rem 5%;
+    }
+    .expertise-grid {
+        grid-template-columns: 1fr; 
+        padding-top: 3rem;
+        gap: 1.5rem;
+    }
 }
 
 /* -------------------------------------
@@ -512,7 +585,9 @@ nav a:hover::after {
         gap: 10px;
     }
     .hero-gallery .img-3 {
-        transform: translateY(20px); /* Menos assimetria no mobile */
+        transform: translateY(20px); 
+        height: auto; /* Remove a altura fixa */
+        aspect-ratio: 3/4; /* Mantém a proporção de retrato vertical */
     }
 
     .footer-contact {
