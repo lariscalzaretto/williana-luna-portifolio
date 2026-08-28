@@ -649,3 +649,8 @@ nav a:hover::after {
     z-index: 10000;
     font-family: var(--font-tech);
 }
+
+/* Trava o carrossel durante a reprodução do vídeo no PC */
+.carousel-container.is-paused .carousel-track {
+    animation-play-state: paused !important;
+}
