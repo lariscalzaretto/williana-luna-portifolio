@@ -274,6 +274,16 @@ nav a:hover::after {
     background-color: var(--text-primary);
 }
 
+.section-desc {
+    text-align: center;
+    max-width: 700px;
+    margin: -1.5rem auto 5rem auto; /* Puxa o texto para perto da linha do título */
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text-primary);
+    opacity: 0.85;
+}
 /* -------------------------------------
    CARROSSEL INFINITO CSS-ONLY
 -------------------------------------- */
@@ -399,27 +409,37 @@ nav a:hover::after {
 }
 
 /* -------------------------------------
-   CRESCIMENTO DE MARCA
+   CRESCIMENTO DE MARCA (MÉTRICAS NO IPHONE)
 -------------------------------------- */
 .growth-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Reduzido o minmax para não estourar mobile */
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
     max-width: 1000px;
     margin: 0 auto;
 }
 
-.growth-grid img {
-    aspect-ratio: 4/3;
-    filter: grayscale(40%);
-    transition: filter 0.5s, transform 0.5s;
-    width: 100%; /* Força caber no grid */
+/* Modificador do iPhone para telas de aplicativos (fundo branco) */
+.metrics-frame {
+    background-color: #ffffff; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.06); 
+}
+
+.growth-grid .metrics-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Garante que os números não sejam cortados */
+    border-radius: 32px;
+    padding-top: 35px; /* Protege a imagem de ser coberta pelo Notch da câmera */
+    background-color: #ffffff;
+    filter: none; /* Remove o filtro cinza para manter a clareza dos dados e cores reais */
+    transition: transform 0.5s ease;
 }
 
 @media (hover: hover) {
-    .growth-grid img:hover {
-        filter: grayscale(0%);
-        transform: scale(1.02);
+    .growth-grid .metrics-frame:hover img {
+        transform: scale(1.03); /* Microinteração mantida apenas na tela interna */
     }
 }
 
