@@ -220,28 +220,64 @@ nav a:hover::after {
     background-color: var(--text-primary);
 }
 
-.expertise-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem 4rem; 
-    border-top: 1px solid rgba(26, 26, 26, 0.15); 
-    padding-top: 4rem;
+.expertise-desc {
+    margin-top: -2rem;
+    margin-bottom: 4rem;
 }
 
-.expertise-item {
-    font-size: 1rem;
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: 0 4rem;
+    border-top: 1px solid rgba(26, 26, 26, 0.15);
+}
+
+.expertise-card {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(26, 26, 26, 0.15);
+}
+
+.expertise-num {
+    display: block;
+    font-family: var(--font-tall);
+    font-weight: 200;
+    font-size: 2.6rem;
+    line-height: 1;
+    opacity: 0.35;
+    margin-bottom: 0.8rem;
+}
+
+.expertise-card h3 {
+    font-family: var(--font-premium);
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.15;
+    letter-spacing: 0;
+    text-transform: none;
+    margin-bottom: 1.2rem;
+}
+
+.expertise-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expertise-card li {
+    font-size: 0.92rem;
     font-weight: 300;
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    line-height: 1.55;
+    padding-left: 18px;
+    position: relative;
+    margin-bottom: 0.45rem;
     opacity: 0.9;
 }
 
-.expertise-item::before {
+.expertise-card li::before {
     content: '';
-    display: inline-block;
-    flex-shrink: 0;
+    position: absolute;
+    left: 0;
+    top: 0.65em;
     width: 6px;
     height: 6px;
     background-color: var(--text-primary);
