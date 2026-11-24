@@ -127,3 +127,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// 4. Serviços: lista interativa (abre um por vez)
+document.querySelectorAll('.service-head').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.closest('.service');
+        const willOpen = !item.classList.contains('open');
+        document.querySelectorAll('.service.open').forEach(o => {
+            o.classList.remove('open');
+            o.querySelector('.service-head').setAttribute('aria-expanded', 'false');
+        });
+        if (willOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
